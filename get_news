@@ -1,0 +1,23 @@
+import requests
+
+def get_news_on_new_york(api_key):
+    url = f'https://newsapi.org/v2/everything?q=California&apiKey={"05fe779a5de443e0b6a9bf0fc338085d"}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        news_data = response.json()
+        return news_data['articles']
+    else:
+        return None
+
+if __name__ == "__main__":
+    api_key = '05fe779a5de443e0b6a9bf0fc338085d'
+    news_articles = get_news_on_new_york(api_key)
+    if news_articles:
+        for article in news_articles:
+            print(f"Title: {article['title']}")
+            print(f"Description: {article['description']}")
+            print(f"URL: {article['url']}")
+            print("\n")
+    else:
+        print("Failed to fetch news articles.")
+

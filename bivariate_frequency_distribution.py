@@ -31,7 +31,7 @@ data = pd.DataFrame({'age': age, 'accidents': accidents})
 plt.figure(figsize=(10, 6))
 sns.histplot(data, x='age', y='accidents', bins=30, cbar=True)
 
-plt.title('Positive Correlation between Age of Driver and Number of Accidents')
+plt.title(f'Positive Correlation between Age of Driver and Number of Accidents : {data.corr().iloc[0, 1]:.2f}')
 plt.xlabel('Age of Driver')
 plt.ylabel('Number of Accidents')
 plt.show()
